@@ -1,18 +1,17 @@
-    <section>
-      <div class="row">
-
-        <% @products.each do |product| %>
-
-          <div class="col-sm-4">
-            <div class="product_single">
-              <h2 class="product_header"><%= product.name %></h2>
-              <p>Price: <%= product.price %></p>
-              <a href="/products/<%= product.id %>" title="View Product"><img src="<%= product.image %>" alt="<%= product.name %>" class="img-responsive product_single_image"></a>
-              <p>Description: <%= product.description %></p>
-            </div>
-          </div>
-        <% end %>
-
+<h1 class="site-title"><img src="http://socializedsoftware.com/wp-content/uploads/2010/08/configuration-management-gears.png" alt="Logo & Home">Nerd Junk-tion</h1>
+<% @products.each_slice(3) do |product_group| %>
+<div class="row">
+  <% product_group.each do |product| %>
+    <div class="col-sm-4">
+      <div class="well">
+        <div class="product_single">
+          <h2 class="product_header"><%= product.name %></h2>
+          <p>Price: <%= product.price %></p>
+          <a href="/products/<%= product.id %>" title="View Product"><img src="<%= product.image %>" alt="<%= product.name %>" class="img-responsive product_single_image"></a>
+          <p>Description: <%= product.description %></p>
+        </div>
       </div>
-    </section>
-  <%= link_to "Add New Product", "products/new", class: "btn btn-default" %>
+    </div>
+  <% end %>
+</div>
+<% end %>
