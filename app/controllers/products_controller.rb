@@ -56,5 +56,10 @@ class ProductsController < ApplicationController
     flash[:warning] = "Product Created"
     redirect_to "/"
   end
+
+  def run_search
+    @products = Product.where("name LIKE ?", "%#{params[:search_terms]}%")
+    render 'index.html.erb'
+  end
 end
 
