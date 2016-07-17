@@ -4,6 +4,8 @@ class ProductsController < ApplicationController
       @products = Product.order(params[:sort_attribute] => params[:sort_order])
     elsif params[:max_price]
       @products = Product.where('price < ?', params[:max_price])
+    elsif params[:search_terms]
+      @products = Product.where("name LIKE ?", "%#{params[:search_terms]}%")
     else
       @products = Product.all
     end
@@ -55,11 +57,6 @@ class ProductsController < ApplicationController
 
     flash[:warning] = "Product Created"
     redirect_to "/"
-  end
-
-  def run_search
-    @products = Product.where("name LIKE ?", "%#{params[:search_terms]}%")
-    render 'index.html.erb'
   end
 end
 

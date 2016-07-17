@@ -24,7 +24,7 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <%= form_tag "/search", method: :post, class: "navbar-form navbar-left" do %>
+      <%= form_tag "/products", method: :get, class: "navbar-form navbar-left" do %>
         <div class="form-group">
         <%= text_field_tag :search_terms, '', class: "form-control", placeholder: "Search" %>
         </div>
