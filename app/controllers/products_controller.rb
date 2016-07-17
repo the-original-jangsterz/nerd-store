@@ -2,6 +2,8 @@ class ProductsController < ApplicationController
   def index
     if params[:sort_attribute] && params[:sort_order]
       @products = Product.order(params[:sort_attribute] => params[:sort_order])
+    elsif params[:max_price]
+      @products = Product.where('price < ?', params[:max_price])
     else
       @products = Product.all
     end
