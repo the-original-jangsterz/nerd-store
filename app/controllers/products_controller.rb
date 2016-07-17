@@ -12,7 +12,7 @@ class ProductsController < ApplicationController
       description: params[:description],
       image: params[:image],
       price: params[:price]
-      )
+    )
 
     flash[:success] = "Product Created"
     redirect_to "/products/#{@product.id}"
@@ -33,7 +33,7 @@ class ProductsController < ApplicationController
       description: params[:description],
       image: params[:image],
       price: params[:price]
-      )
+    )
 
     flash[:success] = "Product Updated"
     redirect_to "/products/#{@product.id}"
