@@ -1,6 +1,10 @@
 class ProductsController < ApplicationController
   def index
-    @products = Product.all
+    if params[:sort_attribute] && params[:sort_order]
+      @products = Product.order(params[:sort_attribute] => params[:sort_order])
+    else
+      @products = Product.all
+    end
   end
 
   def new
