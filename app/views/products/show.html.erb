@@ -4,10 +4,10 @@
         <div class="product_single">
             <h2><%= @product.name %></h2>
             <% if @product.discounted? %>
-              <p class="discount">Price: <%= @product.price %></p>
+              <p class="discount">Price: <%= number_to_currency(@product.price) %></p>
               <p>Discount item!</p>
             <% else %>
-              <p>Price: <%= @product.price %></p>
+              <p>Price: <%= number_to_currency(@product.price) %></p>
               <p>Everyday value!</p>
             <% end %>
             <p>Tax: <%= number_to_currency(@product.tax) %></p>
