@@ -1,4 +1,6 @@
 class Product < ActiveRecord::Base
+  belongs_to :supplier
+
   def discounted?
     price.to_f < 100.0
   end
