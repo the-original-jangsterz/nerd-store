@@ -23,8 +23,7 @@
                 <%= text_field_tag :quantity, 1 %>
               </div>
               <div>
-                <%= label_tag :product_id, "Please don't change this number!" %>
-                <%= text_field_tag :product_id, @product.id %>
+                <%= hidden_field_tag :product_id, @product.id %>
               </div>
               <%= submit_tag "Place order!" %>
             <% end %>
