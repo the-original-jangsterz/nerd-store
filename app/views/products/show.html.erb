@@ -22,6 +22,10 @@
                 <%= label_tag :quantity %>
                 <%= text_field_tag :quantity %>
               </div>
+              <div>
+                <%= label_tag :product_id, "Please enter the last number in the url of your browser!" %>
+                <%= text_field_tag :product_id %>
+              </div>
               <%= submit_tag "Place order!" %>
             <% end %>
             <%= link_to "New image", "/products/#{@product.id}/images/new", class: "btn btn-success"%>
