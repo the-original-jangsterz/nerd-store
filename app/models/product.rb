@@ -1,6 +1,7 @@
 class Product < ActiveRecord::Base
   belongs_to :supplier
   has_many :images
+  has_many :orders
 
   def discounted?
     price.to_f < 100.0
