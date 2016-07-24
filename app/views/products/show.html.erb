@@ -4,6 +4,12 @@
         <div class="product_single">
             <h2><%= @product.name %></h2>
             <h4><%= @product.supplier.name %></h4>
+            <p>Categories:</p>
+            <ul>
+              <% @product.categories.each do |category| %>
+                <li><%= category.name %></li>
+              <% end %>
+            </ul>
             <% if @product.discounted? %>
               <p class="discount">Price: <%= number_to_currency(@product.price) %></p>
               <p>Discount item!</p>
