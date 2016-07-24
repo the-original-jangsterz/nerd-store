@@ -46,6 +46,9 @@
             <li><a href="/products?max_price=20">Discount items</a></li>
             <li><a href="/products/random">Random item</a></li>
             <li role="separator" class="divider"></li>
+            <% Category.all.each do |category| %>
+              <li><a href="/products?category_id=<%= category.id %>"><%= category.name %></a></li>
+            <% end %>
             <li><a href="#">Separated link</a></li>
           </ul>
         </li>
