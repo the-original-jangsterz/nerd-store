@@ -23,7 +23,7 @@
               <img src="<%= image.url %>" alt="<%= @product.name %>" class="img-responsive">
             <% end %>
             <p>Description: <%= @product.description %></p>
-            <%= form_tag "/orders", method: :post do %>
+            <%= form_tag "/carted_products", method: :post do %>
               <div>
                 <%= label_tag :quantity %>
                 <%= text_field_tag :quantity, 1 %>
@@ -31,7 +31,7 @@
               <div>
                 <%= hidden_field_tag :product_id, @product.id %>
               </div>
-              <%= submit_tag "Place order!" %>
+              <%= submit_tag "Add to cart!" %>
             <% end %>
             <%= link_to "New image", "/products/#{@product.id}/images/new", class: "btn btn-success"%>
             <%= link_to "Edit", "/products/#{@product.id}/edit", class: "btn btn-success" %>

@@ -1,11 +1,13 @@
 <h1>Your order info:</h1>
 <p>Order id: <%= @order.id + 653462 %></p>
 <p>Email: <%= @order.user.email %></p>
-<p>Quantity: <%= @order.quantity %></p>
-<p>Product name: <%= @order.product.name %></p>
-<img src="<%= @order.product.images.first.url %>" alt="">
-<p>Quantity: <%= @order.quantity %></p>
+
 <p>Subtotal: <%= number_to_currency(@order.subtotal) %></p>
 <p>Tax: <%= number_to_currency(@order.tax) %></p>
 <hr>
 <p>Total: <%= number_to_currency(@order.total) %></p>
+
+<% @order.carted_products.each do |carted_product| %>
+  <h5><%= carted_product.product.name %></h5>
+  <h6><%= carted_product.quantity %></h6>
+<% end %>

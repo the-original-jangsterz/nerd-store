@@ -1,0 +1,10 @@
+<h1>Checkout Page</h1>
+<% @carted_products.each do |carted_product| %>
+  <h2><%= carted_product.product.name %></h2>
+  <p>Quantity: <%= carted_product.quantity %></p>
+  <%= link_to "Remove from cart", "/carted_products/#{carted_product.id}", method: :delete %>
+<% end %>
+
+<%= form_tag "/orders", method: :post do %>
+  <%= submit_tag "Buy now!" %>
+<% end %>
