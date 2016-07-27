@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_admin!, except: [:index, :show]
+
   def index
     if params[:sort_attribute] && params[:sort_order]
       @products = Product.order(params[:sort_attribute] => params[:sort_order])
@@ -15,6 +17,7 @@ class ProductsController < ApplicationController
   end
 
   def new
+    render 'new.html.erb'
   end
 
   def create

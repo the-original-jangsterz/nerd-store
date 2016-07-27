@@ -33,9 +33,11 @@
               </div>
               <%= submit_tag "Add to cart!" %>
             <% end %>
-            <%= link_to "New image", "/products/#{@product.id}/images/new", class: "btn btn-success"%>
-            <%= link_to "Edit", "/products/#{@product.id}/edit", class: "btn btn-success" %>
-            <%= link_to "Delete", "/products/#{@product.id}", {method: :delete, class: "btn btn-danger" }%>
+            <% if current_user && current_user.admin %>
+              <%= link_to "New image", "/products/#{@product.id}/images/new", class: "btn btn-success"%>
+              <%= link_to "Edit", "/products/#{@product.id}/edit", class: "btn btn-success" %>
+              <%= link_to "Delete", "/products/#{@product.id}", {method: :delete, class: "btn btn-danger" }%>
+            <% end %>
         </div>
       </div>
     </div>
