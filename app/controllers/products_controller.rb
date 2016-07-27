@@ -17,20 +17,23 @@ class ProductsController < ApplicationController
   end
 
   def new
+    @product = Product.new
     render 'new.html.erb'
   end
 
   def create
-    @product = Product.create(
+    @product = Product.new(
       name: params[:name],
       description: params[:description],
-      image: params[:image],
       price: params[:price],
       supplier_id: params[:supplier_id]
     )
-
-    flash[:success] = "Product Created"
-    redirect_to "/products/#{@product.id}"
+    if @product.save
+      flash[:success] = "Product Created"
+      redirect_to "/products/#{@product.id}"
+    else
+      render 'new.html.erb'
+    end
   end
 
   def show

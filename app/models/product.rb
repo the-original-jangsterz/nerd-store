@@ -7,6 +7,11 @@ class Product < ActiveRecord::Base
   has_many :carted_products
   has_many :orders, through: :carted_products
 
+  validates :name, presence: true
+  validates :name, uniqueness: true
+  validates :description, presence: true
+  validates :description, uniqueness: true
+
   def discounted?
     price.to_f < 100.0
   end
