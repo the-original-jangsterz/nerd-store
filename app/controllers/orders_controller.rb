@@ -17,11 +17,7 @@ class OrdersController < ApplicationController
     )
     order.save
 
-    @carted_products.each do |carted_product|
-      carted_product.status = "purchased"
-      carted_product.order_id = order.id
-      carted_product.save
-    end
+    @carted_products.update_all(status: "purchased", order_id: order.id)
 
     redirect_to "/orders/#{order.id}"
   end
