@@ -19,6 +19,7 @@ class CartedProductsController < ApplicationController
       status: 'carted'
     )
     carted_product.save
+    session[:cart_count] = nil
     redirect_to '/carted_products'
   end
 
@@ -27,6 +28,7 @@ class CartedProductsController < ApplicationController
     carted_product.status = "removed"
     carted_product.save
     flash[:success] = "Product removed!"
+    session[:cart_count] = nil
     redirect_to "/carted_products"
   end
 end
